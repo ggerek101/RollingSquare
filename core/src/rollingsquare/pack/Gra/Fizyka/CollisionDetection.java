@@ -65,7 +65,7 @@ public class CollisionDetection implements ContactListener {
             Gwiazdka g = (Gwiazdka) bodyA.getUserData();
             if(h.getKolor() == g.getKolor()) {
                 h.zebralGwiazdke = true;
-                g.umarl = false;
+                g.umarl = true;
             }
         }
 

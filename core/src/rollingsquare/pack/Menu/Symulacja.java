@@ -33,7 +33,7 @@ public class Symulacja
         gwiazdki = new Vector();
         podloga = new Vector();
         objectWidth = 52;
-        objectHeight = 42;
+        objectHeight = 52;
         this.V = 5;
         this.czasPojawania = 2f;
         this.czasOdOstatniego = 0;
