@@ -1,15 +1,11 @@
 package rollingsquare.pack.Gra;
 
-import com.badlogic.gdx.Gdx;
-
 import java.util.Vector;
 
-import rollingsquare.pack.Gra.Fizyka.Swiat;
 import rollingsquare.pack.Gra.Fizyka.obiekty.Bohater;
 import rollingsquare.pack.Gra.Fizyka.obiekty.CeleMapy.Gwiazdka;
 import rollingsquare.pack.Gra.Fizyka.obiekty.Kolce;
 import rollingsquare.pack.Gra.Fizyka.obiekty.Linia;
-import rollingsquare.pack.Gra.Fizyka.obiekty.LiniaObracana;
 import rollingsquare.pack.Gra.Fizyka.obiekty.LiniaPoruszana;
 import rollingsquare.pack.Gra.Fizyka.obiekty.LiniaProsta;
 import rollingsquare.pack.Gra.Fizyka.obiekty.LiniaZnikajaca;
@@ -48,10 +44,6 @@ public class ManagerObiektow {
                 }
                 case "LZ": {
                     linie.add(new LiniaZnikajaca(mapa.getObiekty().get(i).x, mapa.getObiekty().get(i).y, "liniaZnikajaca.png", mapa.getObiekty().get(i).czasPojawiania, mapa.getObiekty().get(i).czasZnikania));
-                    break;
-                }
-                case "LO": {
-                    linie.add(new LiniaObracana(mapa.getObiekty().get(i).x, mapa.getObiekty().get(i).y,mapa.getObiekty().get(i).V, "linia.png"));
                     break;
                 }
                 case "K": {

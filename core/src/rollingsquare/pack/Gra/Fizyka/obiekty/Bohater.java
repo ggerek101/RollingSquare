@@ -2,11 +2,13 @@ package rollingsquare.pack.Gra.Fizyka.obiekty;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 
 import rollingsquare.pack.Gra.Fizyka.Swiat;
+import rollingsquare.pack.Gra.Gra;
 import rollingsquare.pack.Gra.Poziom.Mapa;
 import rollingsquare.pack.Grafika;
 
@@ -59,14 +61,14 @@ public class Bohater extends Obiekt
 
         body.createFixture(fixtureDef).setUserData("heroBody");
 
-        pShape.setAsBox(sprite.getWidth() / 2 - 1.0f * Swiat.WTB, sprite.getHeight());
+        pShape.setAsBox(sprite.getWidth() / 2 - 5f * Swiat.WTB, sprite.getHeight());
         fixtureDef.isSensor = true;
         fixtureDef.shape = pShape;
 
         body.createFixture(fixtureDef).setUserData("heroFoot");
         body.setUserData(this);
 
-        V = 1.75f;
+        V = 1f;
         zebralGwiazdke = false;
         moznaSkakac = false;
         zebraneGwiazdki = 0;
@@ -100,7 +102,7 @@ public class Bohater extends Obiekt
     {
         if(moznaSkakac)
         {
-            body.setLinearVelocity(body.getLinearVelocity().x,-V * 3.4f);
+            body.setLinearVelocity(body.getLinearVelocity().x,-V * 5.5f);
             moznaSkakac = false;
         }
     }
@@ -110,9 +112,9 @@ public class Bohater extends Obiekt
         if(Gdx.input.isTouched(0))
         {
                 if (Gdx.input.getX(0) > Gdx.graphics.getWidth() / 2) {
-                    body.setLinearVelocity(V, body.getLinearVelocity().y);
+                    body.setLinearVelocity(V * 1.5f, body.getLinearVelocity().y);
                 } else {
-                    body.setLinearVelocity(-V, body.getLinearVelocity().y);
+                    body.setLinearVelocity(-V * 1.5f, body.getLinearVelocity().y);
             }
         }
         else
@@ -123,6 +125,12 @@ public class Bohater extends Obiekt
             Grafika.cam.position.x = body.getPosition().x + Grafika.cam.viewportWidth / 3;
             */
     }
+
+   /* private void setCameraPositionToHero()
+    {
+        Grafika.cam.position.set(new Vector3(body.getPosition().x, Grafika.cam.viewportHeight / 2, 0));
+    }
+    */
 
     public void aktualizujWydarzenia()
     {

@@ -36,14 +36,14 @@ public class CollisionDetection implements ContactListener {
             Bohater.WlasciwosciBohatera.BohaterKoliduje = true;
         }
         */
-        if(bodyA.getUserData() instanceof Bohater && bodyB.getUserData() instanceof Kolce)
+        if(fixtureA.getUserData() == "heroFoot" && bodyB.getUserData() instanceof Kolce)
         {
             Bohater b = (Bohater) bodyA.getUserData();
             b.umarl = true;
             Kolce k = (Kolce) bodyB.getUserData();
             k.umarl = true;
         }
-        if(bodyA.getUserData() instanceof Kolce && bodyB.getUserData() instanceof Bohater)
+        if(bodyA.getUserData() instanceof Kolce && fixtureB.getUserData() == "heroFoot")
         {
             Bohater b = (Bohater) bodyB.getUserData();
             b.umarl = true;
@@ -58,7 +58,12 @@ public class CollisionDetection implements ContactListener {
             if(h.getKolor() == g.getKolor()) {
                 h.zebralGwiazdke = true;
                 g.umarl = true;
-            }}
+            }
+            else
+            {
+                h.moznaSkakac = true;
+            }
+        }
         if(bodyA.getUserData() instanceof Gwiazdka && bodyB.getUserData() instanceof Bohater)
         {
             Bohater h = (Bohater) bodyB.getUserData();
@@ -69,12 +74,12 @@ public class CollisionDetection implements ContactListener {
             }
         }
 
-        if(fixtureA.getUserData() == "heroFoot" && bodyB.getUserData() instanceof Obiekt)
+        if(fixtureA.getUserData() == "heroFoot" && bodyB.getUserData() instanceof Linia)
         {
             Bohater h = (Bohater) bodyA.getUserData();
             h.moznaSkakac = true;
         }
-        if(bodyA.getUserData() instanceof Obiekt && fixtureB.getUserData() == "heroFoot")
+        if(bodyA.getUserData() instanceof Linia && fixtureB.getUserData() == "heroFoot")
         {
             Bohater h = (Bohater) bodyB.getUserData();
             h.moznaSkakac = true;
@@ -133,7 +138,8 @@ public class CollisionDetection implements ContactListener {
     }
 
     @Override
-    public void preSolve(Contact contact, Manifold oldManifold) {
+    public void preSolve(Contact contact, Manifold oldManifold)
+    {
     }
 
     @Override

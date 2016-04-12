@@ -16,7 +16,7 @@ public class Swiat
 
     public Swiat()
     {
-        world = new World(new Vector2(0, 20f), true);
+        world = new World(new Vector2(0, 15f), true);
         collisionDetection = new CollisionDetection();
         world.setContactListener(collisionDetection);
 

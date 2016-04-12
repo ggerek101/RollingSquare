@@ -53,7 +53,7 @@ public class MalyObiekt
     }
     private void aktualizujPrzezroczystosc()
     {
-        alpha -= 0.01;
+        alpha -= 0.03;
         sprite.setAlpha(alpha);
     }
     private void aktualizujPozycje()
